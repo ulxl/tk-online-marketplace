@@ -6,12 +6,10 @@ import ProductList from './pages/ProductList';
 import ProductDetail from './pages/ProductDetail';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import LogRocket from 'logrocket';
 
 function App() {
   useEffect(() => {
-    LogRocket.init('9xydyj/personal-project');
-    console.log('LogRocket initialized via App.jsx');
+    // LogRocket initialization moved to index.html (CDN)
   }, []);
 
   return (
