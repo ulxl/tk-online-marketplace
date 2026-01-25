@@ -8,7 +8,7 @@ import LogRocket from 'logrocket';
 
 // Initialize LogRocket with your App ID
 // Visit https://app.logrocket.com/ to get your App ID
-LogRocket.init('YOUR_APP_ID_HERE');
+LogRocket.init('9xydyj/personal-project');
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
