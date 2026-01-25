@@ -6,8 +6,7 @@ import App from './App.jsx'
 import { AuthProvider } from './context/AuthContext'
 import LogRocket from 'logrocket';
 
-// Initialize LogRocket with your App ID
-// Visit https://app.logrocket.com/ to get your App ID
+// Initialize LogRocket
 LogRocket.init('9xydyj/personal-project');
 console.log('LogRocket initialized with ID: 9xydyj/personal-project');
 
