@@ -1,7 +1,7 @@
 import axios from 'axios';
 import * as SecureStore from 'expo-secure-store';
 
-const API_URL = 'https://toko-online-tp2-api.onrender.com/api';
+const API_URL = 'https://tk-marketplace-api.onrender.com/api';
 
 const api = axios.create({
     baseURL: API_URL,
