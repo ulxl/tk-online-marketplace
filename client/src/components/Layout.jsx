@@ -22,7 +22,11 @@ export default function Layout() {
                     <span className="bar"></span>
                 </button>
 
+                {/* Overlay to close menu when clicking outside */}
+                <div className={`nav-overlay ${isMenuOpen ? 'active' : ''}`} onClick={() => setIsMenuOpen(false)}></div>
+
                 <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
+                    <button className="close-menu" onClick={() => setIsMenuOpen(false)}>&times;</button>
                     <li><Link to="/" onClick={() => setIsMenuOpen(false)}>Home</Link></li>
                     <li><Link to="/products" onClick={() => setIsMenuOpen(false)}>Products</Link></li>
                     <li>
@@ -37,10 +41,10 @@ export default function Layout() {
                             <li><button onClick={() => { logout(); setIsMenuOpen(false); }} className="logout-btn">Logout</button></li>
                         </>
                     ) : (
-                        <>
-                            <li><Link to="/login" onClick={() => setIsMenuOpen(false)}>Login</Link></li>
-                            <li><Link to="/register" onClick={() => setIsMenuOpen(false)}>Register</Link></li>
-                        </>
+                        <div className="auth-buttons" style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+                            <li><Link to="/login" className="nav-btn nav-btn-login" onClick={() => setIsMenuOpen(false)}>Login</Link></li>
+                            <li><Link to="/register" className="nav-btn nav-btn-register" onClick={() => setIsMenuOpen(false)}>Register</Link></li>
+                        </div>
                     )}
                 </ul>
             </nav>

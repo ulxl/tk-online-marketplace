@@ -359,6 +359,234 @@ a {
 
 .logout-btn:hover {
   background: var(--primary-color);
+  background: var(--primary-color);
   color: white;
   border-color: var(--primary-color);
+}
+
+/* Mobile Nav Toggle Base Styles */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  background: none;
+  border: none;
+  gap: 5px;
+  z-index: 100;
+  /* Lower than sidebar */
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: var(--text-color);
+  transition: 0.3s;
+}
+
+/* Close Button (Mobile Only) */
+.close-menu {
+  display: none;
+}
+
+/* Nav Overlay */
+.nav-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  /* Darker overlay */
+  backdrop-filter: blur(3px);
+  /* Blur effect */
+  z-index: 1050;
+  /* High z-index */
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+
+.nav-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  display: block;
+}
+
+.nav-btn {
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.nav-btn-login {
+  background-color: transparent;
+  border: 1px solid #000000;
+  color: #000000 !important;
+  font-weight: 600 !important;
+}
+
+.nav-btn-login:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #000000 !important;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #ffffff;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: none;
+  position: relative;
+  /* Anchor for mobile menu */
+  z-index: 1001;
+  /* Ensure navbar stays on top */
+}
+
+.nav-btn-register {
+  background-color: #000000;
+  color: #ffffff !important;
+  border: 1px solid #000000;
+}
+
+.nav-btn-register:hover {
+  opacity: 0.9;
+  color: #ffffff !important;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    /* Slightly narrower for better proportion */
+    max-width: 320px;
+    /* Max width constraint */
+    height: 100vh;
+    background-color: #ffffff;
+    padding: 2rem;
+    /* Comfortable padding */
+    padding-top: 5rem;
+    /* Space for close button */
+    transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Slower, smoother easing */
+    z-index: 1100;
+    /* Highest z-index to cover hamburger */
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+    /* Softer deep shadow */
+    align-items: stretch;
+    /* Full width items */
+    justify-content: flex-start;
+  }
+
+  .nav-links.active {
+    right: 0;
+    /* Slide in */
+  }
+
+  .nav-links li {
+    margin: 0;
+    width: 100%;
+    border-bottom: 1px solid #f0f0f0;
+    /* Separators */
+  }
+
+  .nav-links li:last-child {
+    border-bottom: none;
+  }
+
+  .nav-links a {
+    font-size: 1.1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Space out items if they have icons */
+    padding: 1.2rem 0.5rem;
+    /* Large touch targets */
+    color: var(--text-color);
+  }
+
+  .nav-links a:hover {
+    background-color: #f9f9f9;
+    padding-left: 1rem;
+    /* Interaction feedback */
+    color: var(--primary-color);
+  }
+
+  .close-menu {
+    display: block;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    /* Aligned with padding */
+    background: #f5f5f5;
+    /* Subtle circle background */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+
+  .close-menu:hover {
+    background: #e0e0e0;
+    transform: rotate(90deg);
+  }
+
+  .app-container {
+    overflow-x: hidden;
+    /* Prevent body scroll when menu open if needed */
+  }
+
+  .auth-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+    /* Separate auth area */
+  }
+
+
+  .nav-links .nav-btn {
+    width: 100%;
+    text-align: center;
+    padding: 0.8rem;
+    display: flex;
+    justify-content: center !important;
+    /* Force center */
+    align-items: center;
+  }
+
+  .product-detail {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .detail-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+  }
 }
