@@ -1,11 +1,17 @@
-import React from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView, Alert } from 'react-native';
+import { useCart } from '../context/CartContext';
 
 const ProductDetailScreen = ({ route, navigation }) => {
     const { product } = route.params;
+    const { addToCart } = useCart();
 
     const formatCurrency = (price) => {
         return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(price * 1000);
+    };
+
+    const handleAddToCart = () => {
+        addToCart(product);
     };
 
     return (
@@ -21,8 +27,11 @@ const ProductDetailScreen = ({ route, navigation }) => {
             </ScrollView>
 
             <View style={styles.footer}>
-                <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-                    <Text style={styles.backButtonText}>Back to Products</Text>
+                <TouchableOpacity style={[styles.btn, styles.backButton]} onPress={() => navigation.goBack()}>
+                    <Text style={[styles.btnText, styles.backBtnText]}>Back</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.btn, styles.cartButton]} onPress={handleAddToCart}>
+                    <Text style={styles.btnText}>Add to Cart</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -78,17 +87,30 @@ const styles = StyleSheet.create({
         borderTopWidth: 1,
         borderTopColor: '#f0f0f0',
         backgroundColor: '#fff',
+        flexDirection: 'row',
+        gap: 10,
     },
-    backButton: {
-        backgroundColor: '#000',
+    btn: {
+        flex: 1,
         padding: 16,
         borderRadius: 12,
         alignItems: 'center',
     },
-    backButtonText: {
+    backButton: {
+        backgroundColor: '#fff',
+        borderWidth: 1,
+        borderColor: '#000',
+    },
+    cartButton: {
+        backgroundColor: '#000',
+    },
+    btnText: {
         color: '#fff',
         fontSize: 16,
         fontWeight: 'bold',
+    },
+    backBtnText: {
+        color: '#000',
     }
 });
 
