@@ -16,21 +16,23 @@ function App() {
   }, []);
 
   return (
-    <Routes>
+    <>
       <PageTracker />
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="products" element={<ProductList />} />
-        <Route path="products/:id" element={<ProductDetail />} />
-        <Route path="cart" element={
-          <ProtectedRoute>
-            <Cart />
-          </ProtectedRoute>
-        } />
-        <Route path="login" element={<Login />} />
-        <Route path="register" element={<Register />} />
-      </Route>
-    </Routes>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="products" element={<ProductList />} />
+          <Route path="products/:id" element={<ProductDetail />} />
+          <Route path="cart" element={
+            <ProtectedRoute>
+              <Cart />
+            </ProtectedRoute>
+          } />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+        </Route>
+      </Routes>
+    </>
   );
 }
 
