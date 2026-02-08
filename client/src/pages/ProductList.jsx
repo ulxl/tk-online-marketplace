@@ -35,7 +35,7 @@ export default function ProductList() {
                         <img src={product.image} alt={product.name} className="product-image" />
                         <div className="product-info">
                             <h3 className="product-name">{product.name}</h3>
-                            <p className="product-price">${product.price}</p>
+                            <p className="product-price">{new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(product.price * 1000)}</p>
                             <Link to={`/products/${product._id}`} className="view-btn">View Details</Link>
                         </div>
                     </div>
