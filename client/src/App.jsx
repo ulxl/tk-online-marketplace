@@ -8,6 +8,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Cart from './pages/Cart';
 import ProtectedRoute from './components/ProtectedRoute';
+import PageTracker from './components/PageTracker';
 
 function App() {
   useEffect(() => {
@@ -16,6 +17,7 @@ function App() {
 
   return (
     <Routes>
+      <PageTracker />
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="products" element={<ProductList />} />
